@@ -1,0 +1,19 @@
+class Solution{
+    map<int,int> m;
+    void help(Node* &root, int dist)
+    {
+        m[dist] += root->data;
+        if(root->left) help(root->left, dist-1);
+        if(root->right) help(root->right,dist+1);
+    }
+  public:
+    vector <int> verticalSum(Node *root) {
+        // add code here.
+        vector<int> res;
+        help(root,0);
+        for(auto it:m){
+            res.push_back(it.second);
+        }
+        return res;
+    }
+};

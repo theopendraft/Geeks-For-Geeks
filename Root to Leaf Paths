@@ -1,0 +1,20 @@
+class Solution {
+    void solve(Node* root, vector<vector<int>>& res, vector<int>& arr) {
+        arr.push_back(root->data);
+        
+        if(root->left == NULL && root->right == NULL) res.push_back(arr);
+        if(root->left) solve(root->left, res, arr);
+        if(root->right) solve(root->right, res, arr);
+        
+        arr.pop_back();
+    }
+    
+  public:
+    vector<vector<int>> Paths(Node* root) {
+        vector<int> arr;
+        vector<vector<int>> res;
+        
+        solve(root, res, arr);
+        return res;
+    }
+};

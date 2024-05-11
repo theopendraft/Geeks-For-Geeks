@@ -1,0 +1,20 @@
+class Solution {
+  public:
+    int even(int n){
+        return sqrt(n);
+    }
+    int odd(int n){
+        return sqrt(pow(n,3));
+    }
+    vector<int> jugglerSequence(int n) {
+        // code here
+        vector<int> ans;
+        ans.push_back(n);
+        while(n!=1){
+            if(n%2) n = odd(n);
+            else n = even(n);
+            ans.push_back(n);
+        }
+        return ans;
+    }
+};

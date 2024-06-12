@@ -1,0 +1,24 @@
+class Solution{
+    public:
+
+
+bool contains(int n){
+        while(n!= 0){
+            int digit = n%10;
+            if(digit == 4){
+                return true;
+            }
+            n = n/10;
+        }
+        return false;
+    }
+    int countNumberswith4(int n) {
+        int cnt = 0;
+        for(int i = 1; i <= n; i++){
+            if(contains(i)){
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+};

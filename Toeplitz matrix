@@ -1,0 +1,11 @@
+bool isToepliz(vector<vector<int>>& mat) {
+    int a=mat[0][0];
+    int m=mat[0].size();
+    for(int i=1;i<mat.size() && i<m;i++){
+        if(mat[i][i]!=a){
+            return false;
+        }
+            
+    }
+    return true;
+}

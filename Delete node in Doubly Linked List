@@ -1,0 +1,37 @@
+class Solution {
+
+  public:
+
+    Node* deleteNode(Node* head, int x) {
+        Node*ptr=head;
+
+        // updating pointer at that given position
+        int i=1;
+        while(i<x){
+            ptr=ptr->next;
+            i++;
+        }
+
+        //case 1 beginning position x=1>>
+        if(x==1){
+            ptr->next->prev=NULL;
+            head=ptr->next;
+            free(ptr);
+        }
+
+        //case 2 ending position x=n where next is null>>
+        else if(ptr->next==NULL){
+            ptr->prev->next=NULL;
+            free(ptr);
+        }
+
+        //case 3 else where in linked list>>
+        else{
+            ptr->prev->next=ptr->next;
+            ptr->next->prev=ptr->prev;
+            free(ptr);
+        }
+
+        return head;
+    }
+};
